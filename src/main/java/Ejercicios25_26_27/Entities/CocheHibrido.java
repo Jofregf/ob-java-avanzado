@@ -89,4 +89,16 @@ public class CocheHibrido implements CocheMejorado, CochesCompletos {
     public int getConsumoCombust() {
         return consumoCombust;
     }
+
+    @Override
+    public String toString() {
+        return "CocheHibrido{" +
+                "consumoElect=" + consumoElect +
+                ", carga=" + carga +
+                ", tipoCombustible='" + tipoCombustible + '\'' +
+                ", litrosEnTanque=" + litrosEnTanque +
+                ", consumoCombust=" + consumoCombust +
+                ", coche=" + coche +
+                '}';
+    }
 }

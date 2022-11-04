@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-//        CochesDB db = new CochesMemoria();
+        //CochesDB db = new CochesMemoria();
         CochesDB db = new CochesFichero();
 
         //Creamos los coches (método antiguo paso de valor sustituido por builder).
@@ -35,6 +35,10 @@ public class Main {
         db.insertar(combustion);
         db.insertar(electrico);
         db.insertar(hibrido);
+        System.out.println(combustion + "--");
+        System.out.println(electrico + "--");
+        System.out.println(hibrido + "--");
+
 
         // Implemento para ver si cada coche está encendido o no
         for (CochesCompletos cocheActual: db.obtener()) {

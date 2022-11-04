@@ -62,4 +62,16 @@ public class Coche {
         this.tipo = tipo;
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "Coche{" +
+                "modelo='" + modelo + '\'' +
+                ", marca='" + marca + '\'' +
+                ", matricula='" + matricula + '\'' +
+                ", añoFabricación=" + añoFabricación +
+                ", estaEncendido=" + estaEncendido +
+                ", tipo='" + tipo + '\'' +
+                '}';
+    }
 }

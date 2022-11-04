@@ -38,4 +38,6 @@ public class CocheCombustion extends CocheMejorado{
     public int kmEstimados() {
         return (litrosEnTanque/consumo) * 100;
     }
+
+
 }

@@ -68,4 +68,14 @@ public class CocheCombustion implements CocheMejorado, CochesCompletos {
     public int getLitrosEnTanque(){
         return litrosEnTanque;
     }
+
+    @Override
+    public String toString() {
+        return "CocheCombustion{" +
+                "tipoCombustible='" + tipoCombustible + '\'' +
+                ", consumo=" + consumo +
+                ", litrosEnTanque=" + litrosEnTanque +
+                ", coche=" + coche +
+                '}';
+    }
 }

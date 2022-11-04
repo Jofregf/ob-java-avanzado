@@ -31,7 +31,6 @@ public class CochesFichero implements CochesDB{
     public void insertar(CochesCompletos coche) {
 
         if (buscar(coche) == null) {
-            //Forma de escribir en fichero implementada por VRoman en las sesiones
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(ficheroDatos, true);
                 PrintStream printStream = new PrintStream(fileOutputStream);
@@ -79,29 +78,35 @@ public class CochesFichero implements CochesDB{
                 String cocheActual = scanner.next();
                 String[] partes = cocheActual.split(",");
                 CochesCompletos coche = null;
-                switch(partes[0]){
+
+                switch(partes[5]){
+
                     case "combustion":
+                        //CocheCombustion{tipoCombustible='Nafta', consumo=10, litrosEnTanque=80, coche=Coche{modelo='Nivus', marca='Volkswagen', matricula='AD235615', añoFabricación=2022, estaEncendido=false, tipo='combustion'}}--
                         // Modelo coche Combustion: 0 modelo, 1 marca, 2 matricula, 3 añoFabricacion, 4 estaencendido,
                         // 5 tipo, 6 tipoCombustible, 7 consumo, 8 litrosEntanque
                         coche = new CocheCombustion()
                                 .setTipoCombustible(partes[6])
                                 .setConsumo(Integer.parseInt(partes[7]))
                                 .setLitrosEnTanque(Integer.parseInt(partes[8]));
+                        break;
                     case "electrico":
-                        // Modelo coche Electrico: 0 modelo, 1 marca, 2 matricula, 3 añoFabricacion, 4 estaencendido,
-                        // 5 tipo, 6 consumo, 7 carga
+                        //Modelo coche Electrico: 0 modelo, 1 marca, 2 matricula, 3 añoFabricacion, 4 estaencendido,
+                        //5 tipo, 6 consumo, 7 carga
                         coche = new CocheElectrico()
                                 .setConsumo(Integer.parseInt(partes[6]))
                                 .setCarga(Integer.parseInt(partes[7]));
+                        break;
                     case "hibrido":
-                        // Modelo coche Hibrido: 0 modelo, 1 marca, 2 matricula, 3 añoFabricacion, 4 estaencendido,
-                        // 5 tipo, 6 consumoElect, 7 carga, 8 tipoCombustible, 9 litros en tanque, 10 consumoCombust
+                        //Modelo coche Hibrido: 0 modelo, 1 marca, 2 matricula, 3 añoFabricacion, 4 estaencendido,
+                        //5 tipo, 6 consumoElect, 7 carga, 8 tipoCombustible, 9 litros en tanque, 10 consumoCombust
                         coche = new CocheHibrido()
                                 .setConsumoElect(Integer.parseInt(partes[6]))
                                 .setCarga(Integer.parseInt(partes[7]))
                                 .setTipoCombustible(partes[8])
                                 .setLitrosEnTanque(Integer.parseInt(partes[9]))
                                 .setConsumoCombustible(Integer.parseInt(partes[10]));
+                        break;
                     default:
                         System.out.println("Tipo de coche erroneo");
                 }

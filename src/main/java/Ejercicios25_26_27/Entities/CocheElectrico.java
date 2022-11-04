@@ -64,4 +64,13 @@ public class CocheElectrico implements CocheMejorado, CochesCompletos {
     public int getCarga(){
         return carga;
     }
+
+    @Override
+    public String toString() {
+        return "CocheElectrico{" +
+                "consumo=" + consumo +
+                ", carga=" + carga +
+                ", coche=" + coche +
+                '}';
+    }
 }
